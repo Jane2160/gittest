@@ -1,0 +1,199 @@
+
+
+
+
+
+git bash 常见命令
+
+
+pwd（print working directory）：查看当前目录
+
+
+cd（change directory）：切换目录
+
+
+..：返回上一级目录
+
+
+ls（list）：查看当前目录下的内容
+
+
+ls 文件夹名字：查看该文件夹下的内容，但所在目录不变
+
+
+ls -a或者ls -ah：-a为all的意思，显示目录下的所有文件，包括以"."开头的隐藏文件
+
+
+mkdir(make directory)：创建目录
+
+
+touch：创建文件，例：touch index.html，ls -b可以显示文件列表，可以查看到index.html的存在
+
+
+cat：显示文件的全部内容，例：cat index.html，显示该页面的全部代码
+
+
+more/less：查看文件的全部内容，例：cat index.html，查看该页面的全部代码，空格键换页，Q键退出内容显示
+
+
+rm（remove）：删除文件，例：rm index.html，删除文件index.html
+
+
+rmdir（remove directory）：删除文件夹，例：rmdir test/，删除名为test的文件夹，只能删除空文件夹，不常用
+
+
+rm -r：递归删除文件夹，例：rmdir test/，删除名为test的文件夹及其所有内容
+
+
+mv（move）：移动文件路径，例：mv index.html test，移动文件index.html到test文件夹中；
+mv index.html test/html2.html，移动文件index.html到test文件夹中，并重命名为index2.html
+
+
+cp（copy）：复制文件，例：cp index.html test，复制文件inde.html并保存到test文件夹中
+
+
+head：查看文件的前几行，例：head -n 5 index.html或者head -5 index.html，查看index.html的前5行
+
+
+tail：查看文件的后几行，例：tail -n 5 index.html或者tail -5 index.html，查看index.html的后5行
+
+
+history：查看之前操作过的所有历史命令
+
+
+>：重定向覆盖，例：ls > index.html，将ls输出的结果放置到index.html文件内，覆盖文件内容；
+echo hello > index.html，将hello放置到index.html文件内，覆盖文件内容；
+注意：若文件index.html本不存在，则会新建一个
+
+
+>>：重定向添加，例：echo hello >> index.html，将hello放置到index.html文件内，放在其他内容之下
+注意：若文件index.html本不存在，则会新建一个
+
+
+wget：下载，wget 下载链接
+
+
+tar：解压缩，tar 压缩文件
+
+
+curl：网络请求，curl 请求链接
+例：curl http://www.baidu.com > baidu.html，把百度页面数据请求下来并放到baidu.html中
+
+
+whoami：查看当前用户
+
+
+grep：正则匹配内容，一般连接管道符"|"使用，例：grep i index.html，匹配出index.html文件中含有i的内容
+
+
+|：管道符，命令连接使用，例：ls | grep i，在ls输出的结果中匹配出含有i的内容
+
+
+
+
+
+
+
+
+
+git使用步骤：
+
+1.切换到相应目录
+2.初始化仓库：git init
+3.查看隐藏目录.git：ls -a
+4.将文件放到暂存区：git add index.html
+5.将暂存区文件放到仓库永久存储（-m，上传到仓库并给其增加备注信息）：git commit -m ‘备注’
+
+
+当出现Please tell me who you are时，需要验证身份，输入：
+git config --global user.name 你的用户名
+git config --global user.email 你的邮箱地址
+
+git config：配置用户信息
+
+我们还可以使用git config --list来查看配置数据
+
+
+git log：查看git上的行为日志
+
+
+git status：查看仓库的状态 
+绿色文件表示在暂存区
+红色文件表示在仓库
+modified：刚刚修改过的文件
+
+
+git checkout 文件名：将暂存区的内容还原到工作区
+
+
+git commit：后面必须加上备注信息，否则会进入vi编辑模式
+
+
+git reset -hard commintId（git log可获得Id）：返回之前的版本
+
+
+
+
+
+
+
+
+
+
+分支：
+
+至少要创建一次commit
+存盘点基于当前分支
+新创建的分支基于当前分支
+会继承父分支的所有提交历史
+
+git branch 分支名称：创建分支
+
+git branch：查看分支
+
+git checkout 分支名称：切换分支
+
+git merge 要合并的文件名：合并文件
+
+git branch -d 要删除的分支名：删除分支
+1.删除失败可能是上次任务没有完全提交
+2.fit branch -D 强制删除' 
+远程仓库：
+远程仓库创建：xxx.git、git init --bare
+
+git push 远程仓库地址 分支名称：将分支共享至远程仓库
+
+git pull 远程仓库地址 分支名称：获取分支
+
+要创建共享仓库的两个条件：
+1.  .git结尾的目录
+2.必须是一个“裸仓库”(没有工作目录的仓库),git init --bare创建裸仓库
+
+
+git remote add 变量名：共享仓库地址路径
+
+git clone 远程仓库地址 文件夹：克隆远程仓库到该文件夹
+
+ssh-keygen -t rsa：免密登录
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
