@@ -182,6 +182,49 @@ ssh-keygen -t rsa：免密登录
 
 
 
+小结：
+1.创建版本库
+mkdir 自定义仓库库名称
+pwd 显示当前目录
+git init 把这个目录变成一个git仓库，这是一个空仓库，里面有一个隐藏的.git，用来跟踪管理版本库，可以用ls -ah查看到
+一定要把想要管理的文件放到这个目录下，这个目录下就是一个工作区
+
+提交文件到Git仓库，分两步：
+1.使用git add <file>  把文件提交到暂存区，可以反复使用，提交多个文件
+
+2.使用git commit -m‘本次提交的说明’  把暂存区的文件提交到当前分支
+命令执行成功后会显示如下示例，1 file changed：1个文件被改动；2 insertions：插入了两行内容；
+
+
+git status  查看仓库当前的状态
+
+git diff <file>  查看被修改的文件具体修改了什么内容
+
+git log 显示从最近到最远的提交日志，git log --pretty=oneline可以简化日志‘’
+
+
+
+在Git中，HEAD表示当前版本，也就是最新提交的版本，HEAD^表示上一个版本，HEAD^^表示上上个版本，以此类推
+若要知道之前的100个版本，不用写100个^，可以写成HEAD~100
+
+
+git reset --hard HEAD^  或者 git reset --hard commit_id  返回指定的版本
+
+git reflog 查看每一次命令的历史
+
+
+
+版本库：
+工作区中有一个隐藏目录.git，这个不算工作区，而是Git的版本库
+Git的版本库中存了很多东西，最重要的是称为stage（或index）的暂存区，还有Git自动创建的第一个分支master，以及指向master的指针HEAD
+
+
+git diff HEAD -- <file>  查看工作区和版本库里最新版本的区别
+
+
+git checkout -- <file>  回退工作区文件的修改、
+
+git reset HEAD <file>  把暂存区的文件回退到工作区
 
 
 
